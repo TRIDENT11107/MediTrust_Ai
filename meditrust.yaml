@@ -1,0 +1,6 @@
+path: C:\Users\rasto\Desktop\MediTrust_Ai\Dataset
+train: C:\Users\rasto\Desktop\MediTrust_Ai\Dataset\images\train
+val: C:\Users\rasto\Desktop\MediTrust_Ai\Dataset\images\val
+test: C:\Users\rasto\Desktop\MediTrust_Ai\Dataset\images\test
+nc: 3
+names: [class1, class2, class3]
