@@ -1,0 +1,38 @@
+# Node
+node_modules/
+meditrust-ai-react/node_modules/
+meditrust-ai-react/dist/
+
+# Python
+.venv/
+.venv_new/
+.venv_run/
+__pycache__/
+*.py[cod]
+
+# Editors and OS
+.vscode/
+.idea/
+.git-backup/
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+backend_stdout.log
+backend_stderr.log
+
+# Runtime and generated data
+static/uploads/
+static/outputs/
+static/work/
+runs/
+storage/
+Run
+meditrust-ai-react/.env
+
+# Local artifacts and model weights
+Meditrust_ai.pdf
+Nascomm_1.docx
+yolo11n.pt
+runs/last.pt

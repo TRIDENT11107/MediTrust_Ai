@@ -1,0 +1,35 @@
+/* Theme overrides loaded after Tailwind so they take precedence */
+:root {
+  /* Tuned teal palette to match the screenshot */
+  --accent: #0F8C80; /* teal start (lighter) */
+  --accent-2: #115F56; /* teal end (darker) */
+  --highlight: #CDEEEA; /* light teal highlight */
+  --btn-hover-bg: #0D6F62; /* hover/darker shade */
+  --btn-primary-text: #ffffff;
+}
+
+/* Hero gradient using accent (no purple) */
+.gradient-bg {
+  background: linear-gradient(135deg, var(--accent) 0%, var(--accent-2) 100%) !important;
+}
+.gradient-bg .text-center[data-aos] h1,
+.gradient-bg h1 { color: #ffffff !important; }
+.gradient-bg .text-center[data-aos] p,
+.gradient-bg p { color: rgba(255,255,255,0.95) !important; }
+
+/* Dropzone active uses accent */
+.dropzone.active { border-color: var(--accent) !important; background-color: #f0fbfa !important; }
+
+/* Map common Tailwind indigo utilities to the accent so components don't need changes */
+.text-indigo-600, .text-indigo-700 { color: var(--accent) !important; }
+.text-indigo-100 { color: var(--highlight) !important; }
+.bg-indigo-600, .bg-indigo-700 { background-color: var(--accent) !important; }
+.bg-indigo-100 { background-color: var(--highlight) !important; }
+.border-indigo-500 { border-color: var(--accent) !important; }
+.ring-indigo-500 { --tw-ring-color: var(--accent) !important; }
+.focus\:ring-indigo-500:focus { box-shadow: 0 0 0 3px rgba(21,135,123,0.16) !important; }
+.hover\:bg-indigo-700:hover { background-color: var(--btn-hover-bg) !important; }
+
+/* Specific header CTA fixes */
+.bg-indigo-600 { color: var(--btn-primary-text) !important; }
+.bg-indigo-700 { color: var(--btn-primary-text) !important; }

@@ -1,0 +1,84 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Core project styles (minimal, tailwind-aware)
+	 Keep structural utilities and small custom rules here.
+	 Theme-specific colors and overrides live in `theme-overrides.css` which is imported last.
+*/
+
+:root {
+	--card-width: 320px;
+	--card-height: 180px;
+	--card-spacing: 24px;
+}
+
+html, body, #root { height: 100%; }
+body {
+	margin: 0;
+	padding: 0;
+	background: #ffffff;
+	color: #0f172a;
+	font-family: Inter, ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+}
+
+/* Container helpers */
+.app-container { max-width: 1280px; margin: 0 auto; padding: 0 16px; }
+
+/* Card grid */
+.card-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.card { background: #fff; border-radius: 12px; padding: 16px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); }
+
+/* Buttons */
+.btn { display: inline-flex; align-items: center; justify-content: center; border-radius: 8px; padding: 8px 14px; font-weight: 600; }
+
+/* Utilities */
+.full-bleed { max-width: 100% !important; margin: 0 !important; padding-left: 0 !important; padding-right: 0 !important; }
+
+@media (max-width: 1100px) {
+	.card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (max-width: 700px) {
+	.card-grid { grid-template-columns: 1fr; }
+}
+
+.document-card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0,0,0,0.08), 0 10px 10px -5px rgba(0,0,0,0.04); }
+
+.dropzone { border: 2px dashed #d1d5db; transition: all 0.3s ease; }
+
+/* Simple fade-in / slide-up animation used by hero and cards
+	 - .animate-fade-in-up: apply to elements needing a single animation
+	 - .animate-stagger-children: container that staggers children with .stagger-child
+	 - .stagger-child: child elements that should animate in sequence
+*/
+@keyframes fadeInUp {
+	from { opacity: 0; transform: translateY(12px); }
+	to   { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in-up {
+	animation-name: fadeInUp;
+	animation-duration: 520ms;
+	animation-timing-function: cubic-bezier(.16,.84,.34,1);
+	animation-fill-mode: both;
+}
+
+.animate-stagger-children { /* container */
+	--stagger-delay: 80ms;
+}
+.stagger-child {
+	opacity: 0;
+	transform: translateY(10px);
+	animation-name: fadeInUp;
+	animation-duration: 520ms;
+	animation-timing-function: cubic-bezier(.16,.84,.34,1);
+	animation-fill-mode: both;
+	animation-delay: calc(var(--stagger-index, 0) * var(--stagger-delay));
+}
+
+/* Helper to set stagger index via inline style or a small utility class in markup:
+	 <div class="stagger-child" style="--stagger-index:1"> ... </div>
+*/
+
+/* End of minimal styles. For theme and color-related rules use theme-overrides.css */
+
